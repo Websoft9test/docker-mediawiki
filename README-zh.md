@@ -10,12 +10,12 @@
 
 ## 系统要求
 
-安装本项目，确保符合如下的条件（[详细参考](https://registry.hub.docker.com/_/mediawiki/)）：
+安装本项目，确保符合如下的条件（[详细参考](https://registry.hub.docker.com/r/bitnami/mediawiki)）：
 
 * **操作系统**: Red Hat, CentOS, Debian, Ubuntu 等主流 Linux等 操作系统
 * **公有云**: AWS, Azure, Google Cloud, 阿里云, 腾讯云, 华为云等20多个全球主流云
 * **私有云**: KVM, VMware, VirtualBox, OpenStack 等主流虚拟化架构
-* **CPU架构**: Linux x86-64, ARM 32/64, Windows x86-64, IBM POWER8, x86/i686
+* **CPU架构**: Linux x86-64, ARM 32/64, x86/i686
 * **内存**: 2GB以上
 * **CPU**: 1核以上
 * **存储**: 20GB以上
@@ -57,10 +57,8 @@ sudo bash install-mediawiki
 
 ```
 curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh
-curl -L "https://github.com/docker/compose/releases/download/1.29.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
-ln -sf /usr/local/bin/docker-compose  /usr/bin
 sudo systemctl start docker
+alias docker-compose='docker compose'
 ```
 
 #### 安装 MediaWiki
@@ -83,21 +81,14 @@ sudo docker-compose up -d
 
 修改 [docker-compose](docker-compose.yml) 文件中冲突的端口，然后再启动容器
 
-
-#### 首次访问 Mediawiki 显示错误信息正常吗？  
-正常，您需要先完成安装向导  
-
+#### 首次访问 Mediawiki 打不开？  
+确保 APP_URL 是您的公网IP或域名  
 ### 使用说明
 
-启动应用后，本地浏览器访问 URL: *`http://服务器公网IP:9001`* 进入应用。  
+启动应用后，本地浏览器访问 URL: *`http://服务器公网IP:端口`* 进入应用。  
 
 下面是使用过程中可能需要的信息
 
-#### 服务和端口
-
-| 名称 | 端口号 | 用途 |  必要性 |
-| --- | --- | --- | --- |
-| MediaWiki | 9001 | 浏览器访问 MediaWiki | Y |
 ## 文档
 
 [MediaWiki 管理员手册](https://support.websoft9.com/docs/mediawiki)

@@ -10,12 +10,12 @@ This repository is an **Cloud Native solution** powered by [Websoft9](https://ww
 
 ## System Requirements
 
-The following are the minimal [recommended requirements](https://registry.hub.docker.com/_/mediawiki/):
+The following are the minimal [recommended requirements](https://registry.hub.docker.com/r/bitnami/mediawiki):
 
 * **OS**: Red Hat, CentOS, Debian, Ubuntu or other's Linux OS
 * **Public Cloud**: More than 20+ major Cloud such as AWS, Azure, Google Cloud, Alibaba Cloud, HUAWEIClOUD, Tencent Cloud
 * **Private Cloud**: KVM, VMware, VirtualBox, OpenStack
-* **ARCH**:  Linux x86-64, ARM 32/64, Windows x86-64, IBM POWER8, x86/i686
+* **ARCH**:  Linux x86-64, ARM 32/64, x86/i686
 * **RAM**: 2 GB or more
 * **CPU**: 1 cores or higher
 * **HDD**: at least 20 GB of free space
@@ -53,10 +53,8 @@ If you have not install Docker and Docker-Compose, refer to the following comman
 
 ```
 curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh
-curl -L "https://github.com/docker/compose/releases/download/1.29.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
-ln -sf /usr/local/bin/docker-compose  /usr/bin
 sudo systemctl start docker
+alias docker-compose='docker compose'
 ```
 
 #### Install MediaWiki
@@ -78,19 +76,13 @@ Yes, you should modify all database password and application password at docker-
 You should modify ports at [docker-compose file](docker-compose-production.yml) and docker-compose again
 
 #### Error when I access Mediawiki index page first time?  
-Yes, you must complete the installation wizard  
-
+environment APP_URL need set to your Domain or Internet IP  
 ### Usage instructions
 
-You can point your browser to: *`http://Instance's Internet IP:9001`*  
+You can point your browser to: *`http://Instance's Internet IP:port`*  
 
 The following is the information that may be needed during use
 
-#### Services and Ports
-
-| Service | Port | Use |  Necessity |
-| --- | --- | --- | --- |
-| MediaWiki | 9001 | Browser access to MediaWiki Document by http | Y |
 ## Documentation
 
 [MediaWiki Administrator Guide](https://support.websoft9.com/docs/mediawiki)
