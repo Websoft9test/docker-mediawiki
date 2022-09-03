@@ -19,7 +19,6 @@ services:
       - MEDIAWIKI_EMAIL=$APP_EMAIL
       - MEDIAWIKI_HOST=$APP_URL
       - MEDIAWIKI_WIKI_NAME=$APP_SITENAME
-      - MEDIAWIKI_EXTERNAL_HTTP_PORT_NUMBER=$APP_HTTP_PORT
       - PHP_MEMORY_LIMIT=512M
     volumes:
       - mediawiki:/bitnami/mediawiki
